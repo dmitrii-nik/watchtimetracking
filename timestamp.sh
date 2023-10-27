@@ -7,9 +7,9 @@ timestamp() {
   DATE=$(eval 'date +"%F"')
   TIME=$(eval 'date +"%H:%M:%S"')
   TIMEWATCH=$(eval 'date -d "+1 minute" "+%H:%M:00"')
-  TIMESTAMPWATCH=$(eval "date -d \"$DATE $TIMEWATCH\" +%s")
-  TIMESTAMPPC=$(eval "date +%s")
-  echo "$DATE;$TIME;$TIMEWATCH;$TIMESTAMPPC;$TIMESTAMPWATCH"
+  TIMESTAMPWATCH=$(eval "date -d \"$DATE $TIMEWATCH\" +%s%N")
+  TIMESTAMPPC=$(eval "date +%s%N")
+  echo "$DATE,$TIME,$TIMEWATCH,$TIMESTAMPPC,$TIMESTAMPWATCH"
 }
 
 timestamp
